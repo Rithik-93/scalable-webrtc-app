@@ -40,9 +40,10 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
     setMessages((prev) => [...prev, message]);
   }, []);
 
-  const PROD_URL = process.env.PROD_URL || "adasd";
+  const PROD_URL = process.env.PROD_URL ;
 
   useEffect(() => {
+    // @ts-ignore
     const _socket = io(PROD_URL);
     _socket.on("message", onMessageRec);
 
